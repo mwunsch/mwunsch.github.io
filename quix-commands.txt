@@ -1,6 +1,6 @@
 > Mark Wunsch's Custom Quix Commands
 >
-> Sort of inspired by Merlin Mann's Custom Quix Commands
+> Inspired by Merlin Mann's Custom Quix Commands
 > http://github.com/merlinmann/quix-mann
 >
 > http://quixapp.com
