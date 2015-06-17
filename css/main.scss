@@ -1,0 +1,12 @@
+---
+---
+@import "vendor/normalize";
+$futura: "futura-pt", sans-serif;
+
+h1 {
+  font-family: $futura;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 16em;
+  line-height: 1;
+}
