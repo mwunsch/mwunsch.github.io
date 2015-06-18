@@ -1,7 +1,22 @@
 ---
 ---
 @import "vendor/normalize";
+
 $futura: "futura-pt", sans-serif;
+$garamond: "garamond-premier-pro", "Adobe Garamond Pro", Garamond, Times, serif;
+
+body {
+  font-family: $garamond;
+}
+
+header {
+  display: flex;
+  height: 85vh;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 2vmin;
+  font-size: 34px;
+}
 
 h1 {
   font-family: $futura;
