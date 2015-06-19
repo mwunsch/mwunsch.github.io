@@ -11,11 +11,18 @@ body {
 
 header {
   display: flex;
-  height: 85vh;
+  display: -webkit-flex;
+  height: 80vh;
   flex-direction: column;
   justify-content: flex-end;
-  margin: 2vmin;
-  font-size: 34px;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: flex-end;
+  margin: 1vmax;
+  font-size: 3vmax;
+
+  p {
+    margin: 0 10px;
+  }
 }
 
 h1 {
