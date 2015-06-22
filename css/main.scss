@@ -9,7 +9,7 @@ body {
   font-family: $garamond;
 }
 
-header {
+.masthead {
   display: flex;
   display: -webkit-flex;
   height: 80vh;
@@ -23,13 +23,30 @@ header {
   p {
     margin: 0 10px;
   }
+
+  h1 {
+    font-family: $futura;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 15vmax;
+    line-height: 1;
+    margin: 0;
+  }
 }
 
-h1 {
-  font-family: $futura;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 15vmax;
-  line-height: 1;
-  margin: 0;
+a {
+  color: #0047AB;
+  text-decoration: none;
 }
+
+.front-page {
+  margin: 2vw;
+  font-size: 24px;
+
+  .introduction a {
+    text-transform: uppercase;
+    font-size: 21px;
+    letter-spacing: 0.5px;
+  }
+}
+
