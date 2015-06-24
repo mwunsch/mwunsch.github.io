@@ -39,12 +39,14 @@ body {
 a {
   color: #0047AB;
   text-decoration: none;
+  &:hover, &:active {
+    color: #702963;
+  }
 }
 
 .front-page {
   margin: 2vw;
   font-size: 21px;
-  max-width: 80vw;
 
   abbr {
     font-family: $sans;
@@ -53,19 +55,30 @@ a {
   }
 
   p {
-    margin: 0.5em 0;
+    margin: 0.5em;
   }
 
   .introduction a {
     text-transform: uppercase;
     font-size: 0.85em;
     letter-spacing: 0.5px;
+    font-weight: 600;
   }
 
   .elsewhere {
     font-family: $sans;
     list-style: none;
+    margin: 2em 0.5em;
+    padding: 0;
     -webkit-column-count: 2;
+    .link {
+      padding-bottom: 1em;
+      a { font-weight: 500; }
+      p {
+        font-size: 0.85em;
+        margin: 0 0.5em;
+      }
+    }
   }
 }
 
