@@ -2,11 +2,11 @@
 ---
 @import "vendor/normalize";
 
-$futura: "futura-pt", sans-serif;
-$garamond: "garamond-premier-pro", "Adobe Garamond Pro", Garamond, Times, serif;
+$sans: "Avenir Next", Avenir, sans-serif;
+$serif: "garamond-premier-pro", "Adobe Garamond Pro", Garamond, Times, serif;
 
 body {
-  font-family: $garamond;
+  font-family: $sans;
 }
 
 .masthead {
@@ -18,17 +18,19 @@ body {
   -webkit-flex-direction: column;
   -webkit-justify-content: flex-end;
   margin: 1vmax;
-  font-size: 3vmax;
+  font-size: 4.5vmax;
 
   p {
     margin: 0 10px;
+    font-family: $serif;
+    font-variant-ligatures: contextual;
   }
 
   h1 {
-    font-family: $futura;
+    font-family: $sans;
     font-weight: 700;
     font-style: italic;
-    font-size: 15vmax;
+    font-size: 14vmax;
     line-height: 1;
     margin: 0;
   }
@@ -45,7 +47,7 @@ a {
   max-width: 80vw;
 
   abbr {
-    font-family: $futura;
+    font-family: $sans;
     font-size: 0.85em;
     letter-spacing: 1px;
   }
@@ -61,7 +63,7 @@ a {
   }
 
   .elsewhere {
-    font-family: $futura;
+    font-family: $sans;
     list-style: none;
     -webkit-column-count: 2;
   }
@@ -69,7 +71,7 @@ a {
 
 footer {
   margin: 2vw;
-  font-family: $futura;
+  font-family: $sans;
   color: #999;
 }
 
