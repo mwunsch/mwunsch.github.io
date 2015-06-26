@@ -85,6 +85,18 @@ a {
 footer {
   margin: 2vw;
   font-family: $sans;
+  font-size: 0.85em;
+  font-weight: 400;
   color: #999;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+
+  p {
+    margin: 0;
+  }
 }
 
