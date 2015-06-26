@@ -33,12 +33,11 @@ hr {
 .masthead {
   display: flex;
   display: -webkit-flex;
-  height: 80vh;
   flex-direction: column;
   justify-content: flex-end;
   -webkit-flex-direction: column;
   -webkit-justify-content: flex-end;
-  margin: 0 1vmax 1em;
+  margin: 1em 1vmax;
   font-size: 4.5vmax;
 
   p {
@@ -59,7 +58,7 @@ hr {
 
 .front-page {
   margin: 2vw;
-  font-size: 21px;
+  font-size: 20px;
   max-width: 750px;
 
   abbr {
@@ -81,6 +80,7 @@ hr {
 
   .elsewhere {
     font-family: $sans;
+    font-size: 20px;
     list-style: none;
     margin: 2em 0.5em;
     padding: 0;
@@ -88,6 +88,7 @@ hr {
     -webkit-column-count: 2;
     .link {
       padding-bottom: 1em;
+      -webkit-column-break-inside: avoid;
       a { font-weight: 500; }
       p {
         font-size: 0.85em;
@@ -113,8 +114,6 @@ footer {
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
 
-  p {
-    margin: 0;
-  }
+  p { margin: 0; }
 }
 
