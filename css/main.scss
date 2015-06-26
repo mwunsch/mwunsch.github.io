@@ -9,6 +9,27 @@ body {
   font-family: $sans;
 }
 
+a {
+  color: #0047AB;
+  text-decoration: none;
+  &:hover, &:active {
+    color: #702963;
+  }
+}
+
+hr {
+  margin: 0;
+  text-align: center;
+  line-height: 1;
+  border: none;
+  font-size: 2em;
+  margin: 0.5em 0 2em;
+  color: #666;
+  &::after {
+    content: "\02042";
+  }
+}
+
 .masthead {
   display: flex;
   display: -webkit-flex;
@@ -33,14 +54,6 @@ body {
     font-size: 14vmax;
     line-height: 1;
     margin: 0;
-  }
-}
-
-a {
-  color: #0047AB;
-  text-decoration: none;
-  &:hover, &:active {
-    color: #702963;
   }
 }
 
