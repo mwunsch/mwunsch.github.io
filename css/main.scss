@@ -89,7 +89,9 @@ hr {
     .link {
       padding-bottom: 1em;
       -webkit-column-break-inside: avoid;
-      a { font-weight: 500; }
+      a { 
+        font-weight: 500; 
+      }
       p {
         font-size: 0.85em;
         margin: 0;
