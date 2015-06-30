@@ -7,6 +7,7 @@ $serif: "garamond-premier-pro", "Adobe Garamond Pro", Garamond, Times, serif;
 
 body {
   font-family: $sans;
+  margin: 1vw;
 }
 
 a {
@@ -36,7 +37,8 @@ hr {
   justify-content: flex-end;
   -webkit-flex-direction: column;
   -webkit-justify-content: flex-end;
-  margin: 1em 1vmax;
+  margin: 1em 0;
+  min-height: 50vh;
   font-size: 4.5vmax;
 
   p {
@@ -56,7 +58,6 @@ hr {
 }
 
 .front-page {
-  margin: 2vw;
   font-size: 20px;
   max-width: 750px;
 
@@ -81,7 +82,7 @@ hr {
     font-family: $sans;
     font-size: 20px;
     list-style: none;
-    margin: 2em 0.5em;
+    margin: 2em 0;
     text-align: center;
     padding: 0;
     -moz-column-count: 2;
