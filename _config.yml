@@ -1,4 +1,6 @@
 exclude: [Gemfile, Gemfile.lock, README]
+gems:
+  - jekyll-redirect-from
 sass:
   style: :compact
 
