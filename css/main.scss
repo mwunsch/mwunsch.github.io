@@ -86,8 +86,8 @@ hr {
     .link {
       padding-bottom: 1em;
       -webkit-column-break-inside: avoid;
-      a { 
-        font-weight: 500; 
+      a {
+        font-weight: 500;
       }
       p {
         font-size: 0.85em;
@@ -159,3 +159,55 @@ footer {
   p { margin: 0; }
 }
 
+.article {
+  max-width: 750px;
+  font-size: 18px;
+
+  .head {
+    font-weight: 700;
+    font-style: italic;
+    font-size: 48px;
+    line-height: 1;
+    a {
+      color: inherit;
+      &:hover {
+        color: #0047AB;
+      }
+    }
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #ccc;
+  }
+
+  article {
+    h1 {
+      font-weight: 600;
+    }
+    > p:first-of-type {
+      &::after {
+        display: block;
+        text-align: center;
+        color: #666;
+        font-size: 2em;
+        content: "\2767";
+      }
+    }
+    > p:nth-child(2n+1) {
+      font-style: italic;
+    }
+    blockquote {
+      font-weight: 500;
+      font-size: 20px;
+    }
+    > p:last-of-type {
+      font-style: inherit;
+      &::before {
+        display: block;
+        text-align: center;
+        color: #666;
+        font-size: 2em;
+        content: "\2767";
+      }
+    }
+  }
+
+}
