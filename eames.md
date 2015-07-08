@@ -6,7 +6,7 @@ published: false
 ---
 # Design Q & A with Charles&nbsp;Eames
 
-Not to long ago, my wife and I added _The Films of Charles and Ray Eames_ to our Netflix queue. We are admirers and we were curious if there had ever been a documentary or anything done on them. A simple search of "eames" turned up the six disc set. Apparently, not only are the husband and wife team some of the greatest contributors to furniture and industrial design in the 20th century, they were also prolific filmmakers. I wanted to share a transcript of one of their films with you. Charles Eames provides some incredible insight in [Design Q & A.](http://www.eamesoffice.com/index2.php?mod=film_detail&amp;id=3067) Questions by Mme. L. Amic. Answers by Charles Eames. On the occasion of the exhibition "Qu'est ce que le design?" (or What is Design?) at the Musée des Arts Décoratifs, Palais de Louvre.
+Not to long ago, my wife and I added _The Films of Charles and Ray Eames_ to our Netflix queue. We are admirers and we were curious if there had ever been a documentary or anything done on them. A simple search of "eames" turned up the six disc set. Apparently, not only are the husband and wife team some of the greatest contributors to furniture and industrial design in the 20th century, they were also prolific filmmakers. I wanted to share a transcript of one of their films with you. Charles Eames provides some incredible insight in [Design Q & A.](http://www.eamesoffice.com/the-work/design-q-a/) Questions by Mme. L. Amic. Answers by Charles Eames. On the occasion of the exhibition "Qu'est ce que le design?" (or What is Design?) at the Musée des Arts Décoratifs, Palais de Louvre.
 
 Q: What is your definition of "Design", Monsieur Eames?
 
@@ -124,5 +124,5 @@ Q: What is the future of Design?
 
 Throughout the film the questions are posed in white on black titles. Through the answers, photos are shown of the Eames's work. With this last question, on the future of Design, photos are shown of fruit, flowers, and nature.
 
-You can purchase the full set of The Films of Charles and Ray Eames on [Amazon](http://www.amazon.com/Films-Charles-Ray-Eames/dp/B0009S2K92/ref=pd_lpo_k2_dp_k2a_2_txt?pf_rd_p=304485601&amp;pf_rd_s=lpo-top-stripe-2&amp;pf_rd_t=201&amp;pf_rd_i=6305943877&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_r=1VSCFVN3Y3A0BW2E2639). There are some really fantastic, clever short films in there. Look out for _Powers of Ten_ and the brilliant, animated _Mathematics Peep Show_. Since publishing this article the film has become available on [YouTube](https://youtu.be/z8qs5-BDXNU).
+You can purchase the full set of The Films of Charles and Ray Eames on [Amazon](http://www.amazon.com/Films-Charles-Ray-Eames/dp/B0009S2K92/ref=pd_lpo_k2_dp_k2a_2_txt?pf_rd_p=304485601&amp;pf_rd_s=lpo-top-stripe-2&amp;pf_rd_t=201&amp;pf_rd_i=6305943877&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_r=1VSCFVN3Y3A0BW2E2639). There are some really fantastic, clever short films in there. Look out for _Powers of Ten_ and the brilliant, animated _Mathematics Peep Show_. Since publishing this article the film has become available on [YouTube](https://youtu.be/bmgxDCujTUw).
 
