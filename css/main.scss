@@ -232,5 +232,23 @@ footer {
       }
     }
   }
+}
 
+.error {
+  background-color: black;
+  color: white;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+
+  .bang {
+    font-family: Palatino, Baskerville, $serif;
+    font-weight: normal;
+    font-size: 40vh;
+    margin: 0;
+    line-height: 1;
+  }
 }
