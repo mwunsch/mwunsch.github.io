@@ -182,6 +182,12 @@ footer {
     h1 {
       font-weight: 600;
     }
+    a {
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
     > p:first-of-type {
       &::after {
         display: block;
@@ -206,6 +212,23 @@ footer {
         color: #666;
         font-size: 2em;
         content: "\2767";
+      }
+    }
+  }
+
+  .feedback {
+    margin-top: 3em;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    a {
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      color: black;
+      &:hover {
+        border-bottom: 1px solid #666;
       }
     }
   }
