@@ -235,14 +235,14 @@ footer {
 }
 
 .error {
-  background-color: black;
-  color: white;
+  min-height: 94vh;
+  text-align: center;
   display: flex;
   display: -webkit-flex;
-  align-items: center;
-  -webkit-align-items: center;
   flex-direction: column;
   -webkit-flex-direction: column;
+  align-items: center;
+  -webkit-align-items: center;
 
   .bang {
     font-family: Palatino, Baskerville, $serif;
@@ -250,5 +250,39 @@ footer {
     font-size: 40vh;
     margin: 0;
     line-height: 1;
+  }
+
+  .status {
+    font-size: 10vh;
+    margin: 0;
+  }
+
+  .head {
+    margin: 1em 0 0;
+    font-size: 5vh;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+    a {
+      color: inherit;
+      &:hover {
+        color: #0047AB;
+      }
+    }
+    padding: 1em 0;
+    border-top: 1px solid #ccc;
+  }
+
+  .ricercar {
+    font-family: $serif;
+    font-size: 4vh;
+    margin: 0.5em 0;
+    color: #999;
+    display: flex;
+    display: -webkit-flex;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+    flex: 1;
+    -webkit-flex: 1;
   }
 }
