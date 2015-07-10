@@ -1,4 +1,4 @@
-exclude: [Gemfile, Gemfile.lock, README]
+exclude: [Gemfile, Gemfile.lock, README, CNAME]
 gems:
   - jekyll-redirect-from
 sass:
