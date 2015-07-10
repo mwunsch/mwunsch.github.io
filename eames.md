@@ -2,7 +2,6 @@
 layout: post
 redirect_from: /blog/2008/09/27/design-q-a-with-charles-eames.html
 date: 2008-09-27 19:25:53.918078 -07:00
-published: false
 ---
 # Design Q & A with Charles&nbsp;Eames
 
