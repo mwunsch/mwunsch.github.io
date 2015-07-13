@@ -5,7 +5,7 @@ date: 2008-09-27 19:25:53.918078 -07:00
 ---
 # Design Q & A with Charles&nbsp;Eames
 
-Not to long ago, my wife and I added _The Films of Charles and Ray Eames_ to our Netflix queue. We are admirers and we were curious if there had ever been a documentary or anything done on them. A simple search of "eames" turned up the six disc set. Apparently, not only are the husband and wife team some of the greatest contributors to furniture and industrial design in the 20th century, they were also prolific filmmakers. I wanted to share a transcript of one of their films with you. Charles Eames provides some incredible insight in [Design Q & A.](http://www.eamesoffice.com/the-work/design-q-a/) Questions by Mme. L. Amic. Answers by Charles Eames. On the occasion of the exhibition "Qu'est ce que le design?" (or What is Design?) at the Musée des Arts Décoratifs, Palais de Louvre.
+Not too long ago, my wife and I added _The Films of Charles and Ray Eames_ to our Netflix queue. We are admirers and we were curious if there had ever been a documentary or anything done on them. A simple search of "eames" turned up the six disc set. Apparently, not only are the husband and wife team some of the greatest contributors to furniture and industrial design in the 20th century, they were also prolific filmmakers. I wanted to share a transcript of one of their films with you. Charles Eames provides some incredible insight in [Design Q & A.](http://www.eamesoffice.com/the-work/design-q-a/) Questions by Mme. L. Amic. Answers by Charles Eames. On the occasion of the exhibition "Qu'est ce que le design?" (or What is Design?) at the Musée des Arts Décoratifs, Palais de Louvre.
 
 Q: What is your definition of "Design", Monsieur Eames?
 
