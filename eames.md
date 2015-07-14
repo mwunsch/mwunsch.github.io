@@ -2,6 +2,12 @@
 layout: post
 redirect_from: /blog/2008/09/27/design-q-a-with-charles-eames.html
 date: 2008-09-27 19:25:53.918078 -07:00
+title: "Design Q & A with Charles Eames"
+description: >
+  A transcript of the Eames film, "Design Q & A".
+  Questions by Mme. L. Amic. Answers by Charles Eames.
+  On the occasion of the exhibition "Qu'est ce que le design?" (or What is Design?)
+  at the Musée des Arts Décoratifs, Palais de Louvre.
 ---
 # Design Q & A with Charles&nbsp;Eames
 

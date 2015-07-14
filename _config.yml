@@ -1,4 +1,5 @@
 exclude: [Gemfile, Gemfile.lock, README, CNAME]
+url: http://www.markwunsch.com
 gems:
   - jekyll-redirect-from
 sass:
