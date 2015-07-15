@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>{{ page.title }}</title>
+    <title>{{ page.title | xml_escape }}</title>
     <link href="/css/main.css" media="screen" rel="stylesheet">
     <meta property="og:title" content="{{ page.title | xml_escape }}" />
     <meta property="og:description" content="{{ page.description | xml_escape}}" />
     <meta property="og:url" content="{{site.url}}{{page.url}}" />
     <meta property="og:site_name" content="Mark Wunsch" />
+    <meta name="description" content="{{ page.description | xml_escape }}" />
 
     <script src="//use.typekit.net/hit0dcj.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
