@@ -5,7 +5,7 @@ require 'rake/clean'
 JEKYLL_CONFIGURATION = Jekyll.configuration({})
 JEKYLL_DESTINATION = JEKYLL_CONFIGURATION["destination"]
 
-task default: JEKYLL_DESTINATION
+task default: [:install, JEKYLL_DESTINATION]
 
 desc 'Build jekyll'
 task :build do |t|
@@ -23,11 +23,17 @@ end
 CLOBBER << ".git/hooks/pre-push"
 
 desc 'Install pre-push hook'
-task install_hook: [".git/hooks/pre-push"]
+task install: [".git/hooks/pre-push"]
 
 __END__
 #!/bin/sh
 
-pwd
-exit 1
-
+while read local_ref local_sha remote_ref remote_sha
+do
+  changes=`git diff --name-only $local_sha $remote_sha | grep '^tumblelog'`
+  if [ -n "$changes" ]
+  then
+    echo "$changes"
+    bundle exec jekyll build
+  fi
+done
