@@ -1,4 +1,4 @@
-exclude: [Gemfile, Gemfile.lock, README, CNAME]
+exclude: [Gemfile, Gemfile.lock, Rakefile, README, CNAME]
 url: http://www.markwunsch.com
 gems:
   - jekyll-redirect-from
