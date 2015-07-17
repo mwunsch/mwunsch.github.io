@@ -16,7 +16,7 @@ file JEKYLL_DESTINATION => [:build]
 CLEAN << JEKYLL_DESTINATION
 
 file ".git/hooks/pre-push" => directory(".git/hooks") do |t|
-  File.open(t.name, "w") do |f|
+  File.open(t.name, "w", 0755) do |f|
     f.puts File.read(__FILE__).split(/^__END__$/, 2)[1].strip
   end
 end
