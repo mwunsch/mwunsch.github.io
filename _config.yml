@@ -4,4 +4,11 @@ gems:
   - jekyll-redirect-from
 sass:
   style: :compact
+defaults:
+  -
+    scope:
+      path: "tumblelog"
+      # type: "posts"
+    values:
+      layout: "tumblelog"
 
