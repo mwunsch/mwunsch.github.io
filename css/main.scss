@@ -140,7 +140,7 @@ hr {
   }
 }
 
-footer {
+#footer {
   margin-top: 4em;
   max-width: 750px;
   font-family: $sans;
@@ -188,6 +188,9 @@ footer {
       letter-spacing: 0.5px;
       font-weight: 600;
     }
+  }
+
+  #eames-md {
     > p:first-of-type {
       &::after {
         display: block;
@@ -234,55 +237,4 @@ footer {
   }
 }
 
-.error {
-  min-height: 85vh;
-  text-align: center;
-  display: flex;
-  display: -webkit-flex;
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  align-items: center;
-  -webkit-align-items: center;
-
-  .bang {
-    font-family: Palatino, Baskerville, $serif;
-    font-weight: normal;
-    font-size: 40vh;
-    margin: 0;
-    line-height: 1;
-  }
-
-  .status {
-    font-size: 10vw;
-    margin: 0;
-  }
-
-  .head {
-    margin: 1em 0 0;
-    font-size: 5vh;
-    font-weight: 700;
-    font-style: italic;
-    line-height: 1;
-    a {
-      color: inherit;
-      &:hover {
-        color: #0047AB;
-      }
-    }
-    padding: 1em 0;
-    border-top: 1px solid #ccc;
-  }
-
-  .ricercar {
-    font-family: $serif;
-    font-size: 4vh;
-    margin: 0.5em 0;
-    color: #999;
-    display: flex;
-    display: -webkit-flex;
-    align-items: flex-end;
-    -webkit-align-items: flex-end;
-    flex: 1;
-    -webkit-flex: 1;
-  }
-}
+@import "error";
