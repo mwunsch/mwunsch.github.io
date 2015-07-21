@@ -10,6 +10,10 @@
     <meta property="og:url" content="{{site.url}}{{page.url}}" />
     <meta property="og:site_name" content="Mark Wunsch" />
     <meta name="description" content="{{ page.description | xml_escape }}" />
+    {% if page.tumblr_id %}
+    {% capture canonical %}{{site.tumblr_url}}/post/{{page.tumblr_id}}{% endcapture %}
+    <link rel="canonical" href="{{canonical}}" />
+    {% endif %}
 
     <script src="//use.typekit.net/hit0dcj.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>

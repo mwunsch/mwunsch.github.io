@@ -1,5 +1,6 @@
 exclude: [Gemfile, Gemfile.lock, Rakefile, README, CNAME]
 url: http://www.markwunsch.com
+tumblr_url: http://blog.markwunsch.com
 gems:
   - jekyll-redirect-from
 sass:
