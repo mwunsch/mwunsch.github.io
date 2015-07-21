@@ -7,7 +7,7 @@ $serif: "garamond-premier-pro", "Adobe Garamond Pro", Garamond, Times, serif;
 
 body {
   font-family: $sans;
-  margin: 2vw;
+  margin: 2vw 3vw;
 }
 
 a {
@@ -237,6 +237,12 @@ hr {
         border-bottom: 1px solid #666;
       }
     }
+  }
+}
+
+.tumblelog-index {
+  time {
+    font-size: 80%;
   }
 }
 
