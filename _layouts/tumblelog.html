@@ -14,6 +14,9 @@ layout: default
       {% include tumblelog/text.html %}
     {% endcase %}
 
-    <!-- TODO: permalink here -->
+    <footer class="post-footer">
+      <a href="{{canonical}}" class="permalink">View on Tumblr</a>
+      <time class="pubdate">{{page.date}}</time>
+    </footer>
   </article>
 </div>
