@@ -26,8 +26,9 @@ I have a Git [pre-push hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-
 whenever a new tumblelog post is authored (that's the reason for aborting the process).
 You can see the code for the hook in the [`Rakefile`](https://github.com/mwunsch/mwunsch.github.io/blob/master/Rakefile).
 
-The result is that the source for this post is first published to [my Jekyll site]({{page.url | prepend:site.url}})
-before being syndicated to Tumblr.
+The result is that the source for this post is first published to my Jekyll site before being syndicated to Tumblr.
 
-The next steps are continuing to build out syndication for different tumblelog post types, and
-then implementing [**PESOS**](https://indiewebcamp.com/PESOS) to pull my Tumblr archive into my Jekyll repository.
+The next steps are:
+
++ build out syndication for different tumblelog post types
++ implement [**PESOS**](https://indiewebcamp.com/PESOS) to pull my Tumblr archive into my Jekyll repository
