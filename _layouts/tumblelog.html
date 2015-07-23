@@ -2,8 +2,7 @@
 layout: default
 ---
 
-
-{% capture canonical %}{{site.tumblr_url}}/post/{{page.tumblr_id}}{% endcapture %}
+{% capture canonical %}{% include canonical.html %}{% endcapture %}
 {% capture tumblelog_type %}{% if page.type %}{{page.type}}{% else %}text{% endif %}{% endcapture %}
 <div class="tumblelog article">
   <h1 class="head"><a href="/" rel="author">Mark Wunsch</a> <small>/tumblelog</small></h1>
@@ -15,7 +14,7 @@ layout: default
     {% endcase %}
 
     <footer class="post-footer">
-      <a href="{{canonical}}" class="permalink">View on Tumblr</a>
+      <a href="{{canonical | strip_newlines}}" class="permalink">View on Tumblr</a>
       <time class="pubdate">{{page.date}}</time>
     </footer>
   </article>
