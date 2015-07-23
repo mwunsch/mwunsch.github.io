@@ -18,7 +18,7 @@ for their platform (particularly when the platform derives revenue from an unass
 
 I recently migrated my [personal website](http://www.markwunsch.com/) to [Jekyll](http://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/).
 I've been experimenting with using plain text to publish to Tumblr for [awhile](http://staff.tumblr.com/post/441453675/the-tumblr-gem)
-so it did not feel unnatural for me to to author tumblelog posts in Jekyll and syndicate them to Tumblr.
+so it did not feel unnatural for me to author tumblelog posts in Jekyll and syndicate them to Tumblr.
 
 I created a [Jekyll Generator](http://jekyllrb.com/docs/plugins/#generators) that would look for posts in the `tumblelog` category
 and publish them to Tumblr, and then abort the Jekyll build process on success.
