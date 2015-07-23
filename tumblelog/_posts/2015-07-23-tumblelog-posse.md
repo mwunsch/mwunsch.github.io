@@ -1,5 +1,6 @@
 ---
 title: Tumblelog POSSE
+tumblr_id: 124836599795
 ---
 
 For some time, I've had a strong interest in the principles of the [Indie Web](https://indiewebcamp.com/) movement.
