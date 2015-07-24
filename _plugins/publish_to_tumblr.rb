@@ -8,7 +8,6 @@ class PublishToTumblr < Jekyll::Generator
       warn("Missing Tumblr OAuth Tokens in ENV. Will not attempt to publish to Tumblr.")
       return nil
     end
-    blog_host = "mwunsch.tumblr.com"
     published = []
 
     # Filter only the posts meant to be published without tumblr id's
@@ -20,7 +19,7 @@ class PublishToTumblr < Jekyll::Generator
         when "photo", "quote", "link", "chat", "audio", "video"
           {}
         else # text
-          tumblr_client.text(blog_host, {
+          tumblr_client.publish({
             title: post.data["title"],
             body: post.to_s,
             date: post.date,
@@ -61,12 +60,25 @@ class PublishToTumblr < Jekyll::Generator
 
   def tumblr_client
     env = env_vars.to_h
-    @tumblr_client ||= Tumblr::Client.new({
-      consumer_key: env["TUMBLR_CONSUMER_KEY"],
-      consumer_secret: env["TUMBLR_CONSUMER_SECRET"],
-      oauth_token: env["TUMBLR_OAUTH_TOKEN"],
-      oauth_token_secret: env["TUMBLR_OAUTH_TOKEN_SECRET"]
+    @tumblr_client ||= TumblrConnection.new(env)
+  end
+end
+
+class TumblrConnection
+  HOST = "mwunsch.tumblr.com"
+
+  def initialize(oauth_hash)
+    @oauth = oauth_hash
+    @client = Tumblr::Client.new({
+      consumer_key: @oauth["TUMBLR_CONSUMER_KEY"],
+      consumer_secret: @oauth["TUMBLR_CONSUMER_SECRET"],
+      oauth_token: @oauth["TUMBLR_OAUTH_TOKEN"],
+      oauth_token_secret: @oauth["TUMBLR_OAUTH_TOKEN_SECRET"]
     })
+  end
+
+  def publish(hash)
+    @client.text(HOST, hash)
   end
 end
 
