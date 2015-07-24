@@ -26,6 +26,9 @@ class PublishToTumblr < Jekyll::Generator
             date: post.date,
             slug: post.slug,
             format: markdown?(site, post) ? "markdown" : "html",
+            # See: https://groups.google.com/forum/#!topic/tumblr-api/2E_rGjl9PE4
+            # source_url: "#{site.config['url']}#{post.url}",
+            # The tumblr_client gem does not allow this param, but maybe I can just craft the request myself
             state: post.is_a?(Jekyll::Draft) ? "draft" : "queue" # Guard against my own foolishness.
           })
         end
