@@ -1,5 +1,4 @@
 source "https://rubygems.org"
 
 gem 'github-pages'
-gem 'tumblr_client'
-
+gem 'simple_oauth'
