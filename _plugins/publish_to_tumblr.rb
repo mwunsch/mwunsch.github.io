@@ -4,7 +4,6 @@ require 'uri'
 require 'json'
 require 'securerandom'
 require 'pp'
-require 'simple_oauth'
 
 class PublishToTumblr < Jekyll::Generator
   def generate(site)
@@ -13,6 +12,7 @@ class PublishToTumblr < Jekyll::Generator
       return nil
     end
     published = []
+    tumblr_client = TumblrConnection.new
 
     # Filter only the posts meant to be published without tumblr id's
     tumblelog = site.categories["tumblelog"]
@@ -20,7 +20,7 @@ class PublishToTumblr < Jekyll::Generator
       # Publish the post to Tumblr according to the post type
       puts "Publishing #{post.id}"
       post_defaults = {
-        date: post.date,
+        date: post.date.to_s,
         slug: post.slug,
         format: markdown?(site, post) ? "markdown" : "html",
         # See: https://groups.google.com/forum/#!topic/tumblr-api/2E_rGjl9PE4
@@ -33,7 +33,7 @@ class PublishToTumblr < Jekyll::Generator
         else # text
           tumblr_client.publish post_defaults.merge({ title: post.data["title"], body: post.to_s })
         end
-      if response["status"] || !response.has_key?("id")
+      if response.empty? || response["status"] || !response.has_key?("id")
         abort "Encountered an error when attempting to publish to Tumblr. Aborting.\n\t#{response.to_json}"
       else
         post.data["tumblr_id"] = response["id"]
@@ -51,10 +51,6 @@ class PublishToTumblr < Jekyll::Generator
   def markdown?(site, post)
     extensions = site.config["markdown_ext"].split(",").map {|e| ".#{e.downcase}"}
     extensions.include? post.ext
-  end
-
-  def tumblr_client
-    @tumblr_client ||= TumblrConnection.new
   end
 end
 
@@ -78,7 +74,6 @@ class TumblrConnection
 
   def publish(hash)
     response = post(hash)
-    pp response.body
     JSON.parse(response.body)["response"]
   end
 
@@ -100,15 +95,9 @@ class TumblrConnection
   def request(uri, params={})
     Net::HTTP::Post.new(uri).tap do |req|
       req.form_data = params
-      # auth_header = @authorization.merge({oauth_signature: signature(req, params)}).sort.map do |k,v|
-      #   %Q(#{k}="#{escape(v)}")
-      # end.join(", ") #My OAuth isn't working :-(
-      req["Authorization"] = SimpleOAuth::Header.new(req.method, req.uri, params, {
-        consumer_key: @oauth["TUMBLR_CONSUMER_KEY"],
-        token: @oauth["TUMBLR_OAUTH_TOKEN"],
-        consumer_secret: @oauth["TUMBLR_CONSUMER_SECRET"],
-        token_secret: @oauth["TUMBLR_OAUTH_TOKEN_SECRET"]
-      }).to_s
+      sig = { oauth_signature: signature(req, params) }
+      auth_header = @authorization.merge(sig).sort.map {|k,v| %Q<#{k}="#{escape(v)}"> }.join(", ")
+      req["Authorization"] = "OAuth #{auth_header}"
     end
   end
 
@@ -142,7 +131,8 @@ class TumblrConnection
 private
 
   def escape(item)
-    URI.encode_www_form_component(item)
+    # http://oauth.net/core/1.0a/#encoding_parameters
+    URI.escape(item.to_s, /[^a-z0-9\-\.\_\~]/i)
   end
 end
 
