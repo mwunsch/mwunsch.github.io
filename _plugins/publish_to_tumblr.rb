@@ -30,7 +30,7 @@ class PublishToTumblr < Jekyll::Generator
         when "photo", "quote", "link", "chat", "audio", "video"
           {}
         else # text
-          publish post_defaults.merge({ title: post.data["title"], body: post.to_s })
+          publish post_defaults.merge({ title: post.data["title"].to_s, body: post.to_s })
         end
       if response.empty? || response["status"] || !response.has_key?("id")
         abort "Encountered an error when attempting to publish to Tumblr. Aborting.\n\t#{response.to_json}"
@@ -74,8 +74,8 @@ class TumblrConnection
     @authorization = self.authorization
   end
 
-  def publish(hash)
-    req = request(POST_URI, post_params)
+  def publish(params)
+    req = request(POST_URI, params)
     response = Net::HTTP.start(req.uri.host, req.uri.port, use_ssl: true) do |http|
       http.request req
     end
