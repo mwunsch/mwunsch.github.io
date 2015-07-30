@@ -12,7 +12,6 @@ class PublishToTumblr < Jekyll::Generator
       return nil
     end
     published = []
-    tumblr_client = TumblrConnection.new
 
     # Filter only the posts meant to be published without tumblr id's
     tumblelog = site.categories["tumblelog"]
@@ -31,7 +30,7 @@ class PublishToTumblr < Jekyll::Generator
         when "photo", "quote", "link", "chat", "audio", "video"
           {}
         else # text
-          tumblr_client.publish post_defaults.merge({ title: post.data["title"], body: post.to_s })
+          publish post_defaults.merge({ title: post.data["title"], body: post.to_s })
         end
       if response.empty? || response["status"] || !response.has_key?("id")
         abort "Encountered an error when attempting to publish to Tumblr. Aborting.\n\t#{response.to_json}"
@@ -52,12 +51,15 @@ class PublishToTumblr < Jekyll::Generator
     extensions = site.config["markdown_ext"].split(",").map {|e| ".#{e.downcase}"}
     extensions.include? post.ext
   end
+
+  def publish(post_hash)
+    TumblrConnection.new.publish post_hash
+  end
 end
 
 class TumblrConnection
   HOST = "mwunsch.tumblr.com"
   POST_URI = URI("https://api.tumblr.com/v2/blog/#{HOST}/post")
-  USER_INFO = URI("https://api.tumblr.com/v2/user/info")
   OAUTH_VARS = %w( TUMBLR_CONSUMER_KEY
                    TUMBLR_CONSUMER_SECRET
                    TUMBLR_OAUTH_TOKEN
@@ -73,23 +75,11 @@ class TumblrConnection
   end
 
   def publish(hash)
-    response = post(hash)
-    JSON.parse(response.body)["response"]
-  end
-
-  def info
-    uri = USER_INFO
-    Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
-      http.request request(uri)
-    end
-  end
-
-  def post(post_params)
-    uri = POST_URI
     req = request(POST_URI, post_params)
-    Net::HTTP.start(req.uri.host, req.uri.port, use_ssl: true) do |http|
+    response = Net::HTTP.start(req.uri.host, req.uri.port, use_ssl: true) do |http|
       http.request req
     end
+    JSON.parse(response.body)["response"]
   end
 
   def request(uri, params={})
