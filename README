@@ -1,1 +1,7 @@
-TK.
+This is my website.
+
+Run `rake install` to install a GitHub pre-push hook that will build the
+site before pushing.
+This triggers the Jekyll generator that publishes tumblelog posts to Tumblr.
+
+more TK.
