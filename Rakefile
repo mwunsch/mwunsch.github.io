@@ -26,6 +26,7 @@ CLOBBER << ".git/hooks/pre-push"
 desc 'Install pre-push hook'
 task install: [".git/hooks/pre-push"]
 
+desc 'Publish a tumblelog draft post; accepts a slug as an optional arg'
 task :publish => directory("tumblelog/_posts") do |t, args|
   drafts = FileList["tumblelog/_drafts/*"].map {|p| Pathname.new(p) }
   drafts.keep_if {|draft| args.to_a.include? draft.basename(draft.extname).to_s } unless args.to_a.empty?
