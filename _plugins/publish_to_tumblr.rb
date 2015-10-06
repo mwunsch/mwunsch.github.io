@@ -24,7 +24,7 @@ class PublishToTumblr < Jekyll::Generator
         format: markdown?(site, post) ? "markdown" : "html",
         # See: https://groups.google.com/forum/#!topic/tumblr-api/2E_rGjl9PE4
         source_url: "#{site.config['url']}#{post.url}",
-        state: post.is_a?(Jekyll::Draft) ? "draft" : "queue" # Guard against my own foolishness.
+        state: post.is_a?(Jekyll::Draft) ? "draft" : "published"
       }
       response = case post.data["type"]
         when "photo", "quote", "link", "chat", "audio", "video"
@@ -60,6 +60,7 @@ end
 class TumblrConnection
   HOST = "mwunsch.tumblr.com"
   POST_URI = URI("https://api.tumblr.com/v2/blog/#{HOST}/post")
+  EDIT_URI = URI("https://api.tumblr.com/v2/blog/#{HOST}/post/edit")
   OAUTH_VARS = %w( TUMBLR_CONSUMER_KEY
                    TUMBLR_CONSUMER_SECRET
                    TUMBLR_OAUTH_TOKEN
@@ -76,6 +77,14 @@ class TumblrConnection
 
   def publish(params)
     req = request(POST_URI, params)
+    response = Net::HTTP.start(req.uri.host, req.uri.port, use_ssl: true) do |http|
+      http.request req
+    end
+    JSON.parse(response.body)["response"]
+  end
+
+  def edit(params)
+    req = request(EDIT_URI, params)
     response = Net::HTTP.start(req.uri.host, req.uri.port, use_ssl: true) do |http|
       http.request req
     end
@@ -125,4 +134,3 @@ private
     URI.escape(item.to_s, /[^a-z0-9\-\.\_\~]/i)
   end
 end
-
