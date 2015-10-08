@@ -13,4 +13,9 @@ defaults:
       # type: "posts"
     values:
       layout: "tumblelog"
-
+  -
+    scope:
+      path: "tinyletter"
+      # type: "posts"
+    values:
+      layout: "tinyletter"

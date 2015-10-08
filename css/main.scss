@@ -188,6 +188,15 @@ hr {
       letter-spacing: 0.5px;
       font-weight: 600;
     }
+
+    .letter-subject {
+      font-weight: 500;
+      &::before {
+        content: "Subject: ";
+        color: #333;
+        font-weight: normal;
+      }
+    }
   }
 
   #eames-md {

@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="tinyletter article">
+  <h1 class="head"><a href="/" rel="author">Mark Wunsch</a> <small>/tinyletter</small></h1>
+
+  <article class="tinyletter" id="{{page.path | slugify}}">
+    <header>
+      <p class="letter-subject">{{page.title}}</p>
+    </header>
+    <div class="letter-body">
+      {{ content }}
+    </div>
+    <footer class="post-footer">
+      <time class="pubdate">{{page.date}}</time>
+    </footer>
+  </article>
+</div>
