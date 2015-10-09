@@ -13,6 +13,8 @@ protocol: [SMTP](https://tools.ietf.org/html/rfc5321).
 
 The goal for this week's code was simple: Send this TinyLetter email programmatically.
 
+Here are the major commits from this week to make that happen:
+
 ## emacs.d: [007c9c46aeddddfe3a634ccf396873bc2b429cba][emacs-smtp]
 
 I set up Emac's
@@ -51,7 +53,9 @@ your inbox! (Though it will likely be some plain-text markdown.)
 
 Next week, I think I'm going to focus on making this email look good. Until
 then, [follow me on Twitter](https://twitter.com/markwunsch) and
-[GitHub](https://github.com/mwunsch).
+[GitHub](https://github.com/mwunsch). Maybe more of my code
+subtweets will end up cited in
+[Today in Tabs](http://www.fastcompany.com/3052020/today-in-tabs/today-in-tabs-the-night-the-tabs-went-out-in-georgia).
 
 Your pal,
 Mark
