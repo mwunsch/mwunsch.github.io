@@ -1,5 +1,6 @@
 ---
-title: "The Programs of the Sophomore Slump Week"
+title: The Programs of the Sophomore Slump Week
+message_id: "<nvyyje.3jdeb156hels7@markwunsch.com>"
 ---
 
 This Week's Program: Oct 5 - Oct 9
