@@ -58,14 +58,28 @@ class EmailNewsletter < Jekyll::Generator
   end
 
   def msgstr(post, to_addr)
+    boundary = "boundary_#{SecureRandom.hex}"
     <<EOM
 From: Mark Wunsch <#{FROM}>
 To: #{to_addr}
 Subject: #{post.title}
 Date: #{post.date.rfc2822}
 Message-ID: #{post.data['message_id']}
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary=#{boundary}
+Content-Transfer-Encoding: 7bit
+
+--#{boundary}
+Content-ID: #{message_id}
+Content-Type: text/plain
 
 #{post}
+--#{boundary}
+Content-ID: #{message_id}
+Content-Type: text/html; charset=UTF-8
+
+#{post.transform}
+--#{boundary}--
 EOM
   end
 end
