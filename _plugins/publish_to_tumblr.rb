@@ -22,13 +22,18 @@ class PublishToTumblr < Jekyll::Generator
         date: post.date.to_s,
         slug: post.slug,
         format: markdown?(site, post) ? "markdown" : "html",
+        type: post.data["type"] || "text",
         # See: https://groups.google.com/forum/#!topic/tumblr-api/2E_rGjl9PE4
         source_url: "#{site.config['url']}#{post.url}",
         state: post.is_a?(Jekyll::Draft) ? "draft" : "published"
       }
       response = case post.data["type"]
-        when "photo", "quote", "link", "chat", "audio", "video"
+        when "photo", "quote", "chat", "audio", "video"
           {}
+        when "link"
+          publish post_defaults.merge({ title: post.data["title"].to_s,
+                                        url: post.data["link_url"].to_s,
+                                        description: post.to_s })
         else # text
           publish post_defaults.merge({ title: post.data["title"].to_s, body: post.to_s })
         end

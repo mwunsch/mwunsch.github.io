@@ -197,6 +197,21 @@ hr {
         font-weight: normal;
       }
     }
+
+    .link-url {
+      text-transform: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      font-weight: inherit;
+      &::after {
+        content: " \2192";
+      }
+    }
+    .link-host {
+      display: block;
+      color: #666;
+      font-size: 50%;
+    }
   }
 
   #eames-md {

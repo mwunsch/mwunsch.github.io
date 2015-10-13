@@ -9,6 +9,8 @@ layout: default
 
   <article class="tumblelog t-{{tumblelog_type}}" id="{{page.path | slugify}}" data-tumblr-id="{{page.tumblr_id}}">
     {% case tumblelog_type %}
+    {% when 'link' %}
+      {% include tumblelog/link.html %}
     {% else %}
       {% include tumblelog/text.html %}
     {% endcase %}

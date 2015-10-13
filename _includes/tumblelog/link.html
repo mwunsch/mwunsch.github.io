@@ -1,0 +1,9 @@
+{%if page.title != empty%}
+<h1 class="link-title">
+  <small class="link-host">{{ page.link_url | remove_first:"http://" }}</small>
+  <a href="{{ page.link_url }}" class="link-url">{{page.title}}</a>
+</h1>
+{% endif %}
+<div class="link-description">
+  {{ content }}
+</div>
