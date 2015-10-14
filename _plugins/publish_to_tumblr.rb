@@ -38,7 +38,7 @@ class PublishToTumblr < Jekyll::Generator
           publish post_defaults.merge({ title: post.data["title"].to_s, body: post.to_s })
         end
       if response.empty? || response["status"] || !response.has_key?("id")
-        abort "Encountered an error when attempting to publish to Tumblr. Aborting.\n\t#{response.to_json}"
+        warn "Encountered an error when attempting to publish '#{post.slug}' to Tumblr. Ignoring.\n\t#{response.to_json}"
       else
         post.data["tumblr_id"] = response["id"]
         File.open(File.join(site.source, post.path), "w") do |file|
