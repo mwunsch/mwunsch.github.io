@@ -1,5 +1,6 @@
 ---
 title: The Programs of the Week the Mets Won
+message_id: "<nwbm4y.35q3lshs2ahdf@markwunsch.com>"
 ---
 
 This Week's Program: Oct 12 - Oct 16
