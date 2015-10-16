@@ -35,7 +35,7 @@ namespace :publish do
     drafts = FileList["tumblelog/_drafts/*"].map {|p| Pathname.new(p) }
     drafts.keep_if {|draft| args.to_a.include? draft.basename(draft.extname).to_s } unless args.to_a.empty?
     drafts.each do |draft|
-      sh %Q<mv #{draft.to_path} tumblelog/_posts/#{Date.today.iso8601}-#{draft.basename}>
+      sh %Q<git mv #{draft.to_path} tumblelog/_posts/#{Date.today.iso8601}-#{draft.basename}>
     end
   end
 
@@ -44,7 +44,7 @@ namespace :publish do
     drafts = FileList["tinyletter/_drafts/*"].map {|p| Pathname.new(p) }
     drafts.keep_if {|draft| args.to_a.include? draft.basename(draft.extname).to_s } unless args.to_a.empty?
     drafts.each do |draft|
-      sh %Q<mv #{draft.to_path} tinyletter/_posts/#{Date.today.iso8601}-#{draft.basename}>
+      sh %Q<git mv #{draft.to_path} tinyletter/_posts/#{Date.today.iso8601}-#{draft.basename}>
     end
   end
 end
