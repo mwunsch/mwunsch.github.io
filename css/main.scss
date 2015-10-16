@@ -187,6 +187,12 @@ hr {
       font-size: 0.85em;
       letter-spacing: 0.5px;
       font-weight: 600;
+
+      code {
+        letter-spacing: 0;
+        text-transform: none;
+        font-size: 1.15em;
+      }
     }
 
     .letter-subject {
