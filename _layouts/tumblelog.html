@@ -18,6 +18,14 @@ layout: default
     <footer class="post-footer">
       <a href="{{canonical | strip_newlines}}" class="permalink">View on Tumblr</a>
       <time class="pubdate">{{page.date}}</time>
+      {% if page.tags.size > 0 %}
+        <ul class="tags">
+          {% for tag in page.tags %}
+            <li class="tag">{{tag}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
     </footer>
   </article>
 </div>

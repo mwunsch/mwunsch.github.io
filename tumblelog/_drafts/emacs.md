@@ -1,5 +1,6 @@
 ---
 title: Emacs
+tags: emacs
 ---
 
 After an extended *getting-to-know-you* period and a lot of false
