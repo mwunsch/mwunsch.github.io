@@ -1,6 +1,6 @@
 ---
 title: Overtone Week 1
-message_id: "<nxezc1.xt5sh6p1cu2e@markwunsch.com>"
+message_id: "<nxezge.1y09yhve1o6y9@markwunsch.com>"
 ---
 
 This Week's Program: Nov 2 - Nov 6
@@ -43,7 +43,7 @@ studies for a greater piece. Michael Fogus talks about
 [code painting](http://blog.fogus.me/2015/02/16/code-painting/) and I
 think that kind of work is invaluable. It's also a great way to
 reinforce *the streak*. I tend to get hung up on some kind of large,
-grandeous idea of a project. I freeze there when I should be embarking
+grandious idea of a project. I freeze there when I should be embarking
 on learning and exploration phases.
 
 ## sonic-sketches: [cb161a3acd950a7582e57ffaf857a79569ca033a][mousedrums]
