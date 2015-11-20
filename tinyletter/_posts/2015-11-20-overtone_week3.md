@@ -27,7 +27,7 @@ letter:
 > You have to trial and error to learn \*anything\*. You first learned
 > to walk by falling over a lot. Lower expectations and play :-)
 >
-> -- <cite>[@samaaron][1], creator of Overtone</cite>
+> -- <cite>[@samaaron][1], contributor to Overtone</cite>
 
 Software engineering is frustrating because of documentation. How do
 you get the code to do what you want it to do? Some libraries and
