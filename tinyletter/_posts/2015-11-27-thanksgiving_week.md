@@ -1,5 +1,6 @@
 ---
 title: The Programs of Thanksgiving Week
+message_id: "<nyi533.378dxeer5s3mw@markwunsch.com>"
 ---
 
 This Week's Program: Nov 23 - Nov 27
