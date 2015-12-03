@@ -39,5 +39,15 @@ and let's talk live coding for audio synthesis.
 
 ...
 
+## Code that I did not commit: Let's Encrypt!
+
+This Thursday, [Let's Encrypt](https://letsencrypt.org/) entered
+Public Beta. I want to encrypt!
+
++ I do not understand SSL/TLS any acronomy that ends in "S".
++ Docker is a thing.
++ AWS yeah sure okay.
+
+None of this requires me committing code, just futzing on the command line.
 
 ⚡ Mark
