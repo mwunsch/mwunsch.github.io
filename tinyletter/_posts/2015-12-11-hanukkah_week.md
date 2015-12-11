@@ -1,5 +1,6 @@
 ---
 title: The Programs of the Week of Hanukkah
+message_id: "<nz7ef3.3w2z5kfghmxjh@markwunsch.com>"
 ---
 
 This Week's Program: Dec 7 - Dec 11
