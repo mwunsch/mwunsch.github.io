@@ -48,14 +48,6 @@ hr {
     font-size: 14vmax;
     line-height: 1;
     margin: 0;
-    &::after {
-      content: "\26a1";
-      font-family: "Apple Symbols","Menlo",monospace;
-      font-style: normal;
-      font-weight: normal;
-      color: red;
-      text-shadow: -4px -1px 0 blue;
-    }
   }
 
   p {
