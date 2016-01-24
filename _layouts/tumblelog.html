@@ -11,6 +11,8 @@ layout: default
     {% case tumblelog_type %}
     {% when 'link' %}
       {% include tumblelog/link.html %}
+    {% when 'photo' %}
+      {% include tumblelog/photo.html %}
     {% else %}
       {% include tumblelog/text.html %}
     {% endcase %}
