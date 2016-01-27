@@ -213,10 +213,18 @@ hr {
         content: " \2192";
       }
     }
+
     .link-host {
       display: block;
       color: #666;
       font-size: 50%;
+    }
+
+    .photo-source {
+      img {
+        max-width: 100%;
+        display: block;
+      }
     }
   }
 

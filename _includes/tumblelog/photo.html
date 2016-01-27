@@ -1,5 +1,11 @@
 <div class="photo-source">
-  <img src="{{ page.source }}" />
+  {% if page.link %}
+  <a href="{{page.link}}" class="photo-link">
+    <img src="{{ page.source }}" class="linked-photo" />
+  </a>
+  {% else %}
+  <img src="{{ page.source }}" class="unlinked-photo" />
+  {% endif %}
 </div>
 <div class="photo-caption">
   {{ content }}
