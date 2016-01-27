@@ -32,8 +32,14 @@ class PublishToTumblr < Jekyll::Generator
         when "quote", "chat", "audio", "video"
           {}
         when "photo"
-          publish post_defaults.merge({caption: post.to_s,
-                                       source: post.data["source"].to_s})
+          img_src_params = if post.data['source'] =~ URI::regexp(['http','https'])
+                             { source: post.data['source'] }
+                           else
+                             { data: File.read(File.join(site.source, post.data['source']), encoding: "BINARY") }
+                           end
+          publish post_defaults.merge({ caption: post.to_s,
+                                        link: post.data["link"].to_s
+                                      }).merge(img_src_params)
         when "link"
           publish post_defaults.merge({ title: post.data["title"].to_s,
                                         url: post.data["link_url"].to_s,
