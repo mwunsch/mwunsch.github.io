@@ -26,7 +26,7 @@ class PublishToTumblr < Jekyll::Generator
         type: post.data["type"] || "text",
         # See: https://groups.google.com/forum/#!topic/tumblr-api/2E_rGjl9PE4
         source_url: "#{site.config['url']}#{post.url}",
-        state: post.is_a?(Jekyll::Draft) ? "draft" : "published"
+        state: post.draft? ? "draft" : "published"
       }
       response = case post.data["type"]
         when "quote", "chat", "audio", "video"

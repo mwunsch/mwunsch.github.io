@@ -29,13 +29,21 @@ class EmailNewsletter < Jekyll::Generator
     letters = site.categories["tinyletter"]
     letters.select(&:published?).reject {|p| p.data.key?("message_id") }.each do |post|
       post.data["message_id"] = message_id
-      to_addr = post.is_a?(Jekyll::Draft) ? "mark+tinyletter-draft@markwunsch.com" : TINYLETTER_ADDR
+      to_addr = post.draft? ? "mark+tinyletter-draft@markwunsch.com" : TINYLETTER_ADDR
+      post.output = Jekyll::Renderer.new(site, post, nil).convert(post.content)
       response = smtp.start("markwunsch.com", user, pass, :plain) do |mail|
         mail.send_message msgstr(post, to_addr), FROM, to_addr
       end
       if response.success?
-        File.open(File.join(site.source, post.path), "w") do |file|
-          file.write "#{post.data.to_yaml}---\n\n#{post.to_s}"
+        File.open(post.path, "w") do |file|
+          file.write <<EOF
+---
+title: #{post.data['title']}
+message_id: #{post.data['message_id']}
+---
+
+#{post.content}
+EOF
         end
         mailed << post
         puts "Success. Updated #{post.path} to reflect changes."
@@ -62,7 +70,7 @@ class EmailNewsletter < Jekyll::Generator
     <<EOM
 From: Mark Wunsch <#{FROM}>
 To: #{to_addr}
-Subject: #{post.title}
+Subject: #{post.data['title']}
 Date: #{post.date.rfc2822}
 Message-ID: #{post.data['message_id']}
 Mime-Version: 1.0
@@ -73,12 +81,12 @@ Content-Transfer-Encoding: 7bit
 Content-ID: #{message_id}
 Content-Type: text/plain
 
-#{post}
+#{post.content}
 --#{boundary}
 Content-ID: #{message_id}
 Content-Type: text/html; charset=UTF-8
 
-#{post.transform}
+#{post.output}
 --#{boundary}--
 EOM
   end
