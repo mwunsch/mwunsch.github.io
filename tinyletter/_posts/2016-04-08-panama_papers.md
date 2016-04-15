@@ -9,7 +9,7 @@ This Week's Program: Apr 4 - Apr 8
 Weird week on the Internet. Productive week in the repository.
 
 [`sonic-sketches`](https://github.com/mwunsch/sonic-sketches) is
-nearing a nice milestone. Let's recap. I wanted to make a a project
+nearing a nice milestone. Let's recap. I wanted to make a project
 where I could…
 
 + Do something ambitious with the Clojure programming language. More
@@ -118,4 +118,3 @@ feelings different keys and scales evoke for you.
 [half-notes]: https://github.com/mwunsch/sonic-sketches/commit/fedac58e8cef07e7cc38aa91177cf16167e5070c
 
 [friday-8122984298179943942]: https://soundcloud.com/mwunsch/sonic-sketch-friday-8122984298179943942
-
