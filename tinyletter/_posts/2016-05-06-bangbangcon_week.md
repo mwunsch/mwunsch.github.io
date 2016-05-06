@@ -1,5 +1,6 @@
 ---
 title: Job Transition Week 2
+message_id: <o6repx.133qjeq2pbi7t@markwunsch.com>
 ---
 
 This Week's Program: May 2 - May 6
@@ -84,3 +85,4 @@ right around noon. Hope you'll be able to tune in!
 [tag]: https://github.com/mwunsch/rumoji/commit/74c5080a8e2b6db059e6012ebbc7390b5ad942c6
 
 [talk]: http://bangbangcon.com/speakers.html#mark-wunsch
+
