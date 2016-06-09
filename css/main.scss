@@ -3,7 +3,7 @@
 @import "vendor/normalize";
 
 $sans: "Avenir Next", Avenir, sans-serif;
-$serif: "garamond-premier-pro", "Adobe Garamond Pro", Garamond, Times, serif;
+$serif: Baskerville, Times, serif;
 
 body {
   font-family: $sans;
@@ -48,6 +48,10 @@ hr {
     font-size: 14vmax;
     line-height: 1;
     margin: 0;
+    @media (max-width: 640px) {
+      font-size: 10vmax;
+      word-wrap: break-word;
+    }
   }
 
   p {
