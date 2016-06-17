@@ -12,63 +12,19 @@ class PublishToTumblr < Jekyll::Generator
       return nil
     end
     published = []
-
-    # Filter only the posts meant to be published without tumblr id's
-    tumblelog = site.categories["tumblelog"]
-    tumblelog.select(&:published?).reject {|p| p.data.key?("tumblr_id") }.each do |post|
-      # Publish the post to Tumblr according to the post type
+    TumblrConnection.publishable(site).each do |post|
       puts "Publishing #{post.id}"
-      post_defaults = {
-        date: post.date.to_s,
-        slug: post.slug,
-        format: markdown?(site, post) ? "markdown" : "html",
-        tags: post.tags.join(","),
-        type: post.data["type"] || "text",
-        # See: https://groups.google.com/forum/#!topic/tumblr-api/2E_rGjl9PE4
-        source_url: "#{site.config['url']}#{post.url}",
-        state: post.draft? ? "draft" : "published"
-      }
-      response = case post.data["type"]
-        when "quote", "chat", "audio", "video"
-          {}
-        when "photo"
-          img_src_params = if post.data['source'] =~ URI::regexp(['http','https'])
-                             { source: post.data['source'] }
-                           else
-                             { data: File.read(File.join(site.source, post.data['source']), encoding: "BINARY") }
-                           end
-          publish post_defaults.merge({ caption: post.to_s,
-                                        link: post.data["link"].to_s
-                                      }).merge(img_src_params)
-        when "link"
-          publish post_defaults.merge({ title: post.data["title"].to_s,
-                                        url: post.data["link_url"].to_s,
-                                        description: post.to_s })
-        else # text
-          publish post_defaults.merge({ title: post.data["title"].to_s, body: post.to_s })
-        end
-      if response.empty? || response["status"] || !response.has_key?("id")
-        warn "Encountered an error when attempting to publish '#{post.slug}' to Tumblr. Ignoring.\n\t#{response.to_json}"
-      else
-        post.data["tumblr_id"] = response["id"]
-        File.open(File.join(site.source, post.path), "w") do |file|
-          file.write "#{post.data.to_yaml}---\n\n#{post.to_s}"
-        end
+      TumblrConnection.new(post).publish(false) do |id, post|
+        post.data['tumblr_id'] = id
+        chunks = File.readlines(post.path).slice_before(/-{3}/).to_a
+        chunks.first.push("tumblr_id: #{id}")
+        File.open(path, "w") {|f| f.puts chunks }
         published << post
         puts "Success. Updated #{post.path} to reflect changes."
       end
     end
 
     abort "Updated #{published.count} post(s)." unless published.empty?
-  end
-
-  def markdown?(site, post)
-    extensions = site.config["markdown_ext"].split(",").map {|e| ".#{e.downcase}"}
-    extensions.include? post.ext
-  end
-
-  def publish(post_hash)
-    TumblrConnection.new.publish post_hash
   end
 end
 
@@ -85,31 +41,83 @@ class TumblrConnection
     OAUTH_VARS.all?
   end
 
-  def initialize
-    @oauth = OAUTH_VARS.to_h
+  def self.publishable(site)
+    site.categories['tumblelog'].select(&:published?).reject {|p| p.data.key?('tumblr_id') }
+  end
+
+  attr_reader :post, :site
+
+  def initialize(doc)
+    @oauth = OAUTH_VARS.compact.to_h
     @authorization = self.authorization
+    @post = doc
+    @site = @post.site
+    @type = @post.data['type'] || 'text'
   end
 
-  def publish(params)
-    req = request(POST_URI, params)
-    response = Net::HTTP.start(req.uri.host, req.uri.port, use_ssl: true) do |http|
+  def defaults
+    {
+      date: post.date.to_s,
+      slug: post.data['slug'],
+      format: markdown? ? 'markdown' : 'html',
+      tags: post.data['tags'].join(','),
+      type: @type,
+      # See: https://groups.google.com/forum/#!topic/tumblr-api/2E_rGjl9PE4
+      source_url: "#{site.config['url']}#{post.url}",
+      state: post.draft? ? 'draft' : 'published'
+    }
+  end
+
+  def to_h
+    case @type
+    when 'quote', 'chat', 'audio', 'video'
+      {}
+    when 'photo'
+      img_src_params = if post.data['source'] =~ URI::regexp(['http','https'])
+                         { source: post.data['source'] }
+                       else
+                         { data: File.read(File.join(site.source, post.data['source']), encoding: "BINARY") }
+                       end
+      defaults.merge({ caption: post.to_s, link: post.data['link'].to_s }).merge(img_src_params)
+    when 'link'
+      defaults.merge({ title: post.data['title'].to_s,
+                       url: post.data['link_url'].to_s,
+                       description: post.to_s })
+    else # text
+      defaults.merge({ title: post.data['title'].to_s, body: post.to_s })
+    end
+  end
+
+  def markdown?
+    extensions = site.config["markdown_ext"].split(",").map {|e| ".#{e.downcase}"}
+    extensions.include? post.extname
+  end
+
+  def publish(net = true)
+    if !net
+      warn "Dry run: no network requests are being made"
+      yield SecureRandom.random_number(1000), post
+      return false
+    end
+    if !self.class.available?
+      warn "You're trying to publish to Tumblr but your credentials are missing!"
+      return nil
+    end
+    req = request(POST_URI)
+    res = Net::HTTP.start(req.uri.host, req.uri.port, use_ssl: true) do |http|
       http.request req
     end
-    JSON.parse(response.body)["response"]
-  end
-
-  def edit(params)
-    req = request(EDIT_URI, params)
-    response = Net::HTTP.start(req.uri.host, req.uri.port, use_ssl: true) do |http|
-      http.request req
+    response = JSON.parse(res.body)["response"]
+    if response.empty? || response['status'] || !response.has_key?('id')
+    else
+      yield response['id'], post
     end
-    JSON.parse(response.body)["response"]
   end
 
-  def request(uri, params={})
+  def request(uri)
     Net::HTTP::Post.new(uri).tap do |req|
-      req.form_data = params
-      sig = { oauth_signature: signature(req, params) }
+      req.form_data = to_h
+      sig = { oauth_signature: signature(req) }
       auth_header = @authorization.merge(sig).sort.map {|k,v| %Q<#{k}="#{escape(v)}"> }.join(", ")
       req["Authorization"] = "OAuth #{auth_header}"
     end
@@ -126,8 +134,8 @@ class TumblrConnection
     }
   end
 
-  def signature(req, params={})
-    normalized_params = @authorization.merge(params).sort.map{|k,v| "#{k}=#{escape(v)}" }.join("&")
+  def signature(req)
+    normalized_params = @authorization.merge(to_h).sort.map{|k,v| "#{k}=#{escape(v)}" }.join("&")
     base = [req.method, req.uri.to_s, normalized_params].map do |item|
       escape(item)
     end.join("&")
