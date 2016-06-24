@@ -1,5 +1,6 @@
 ---
 title: The Programs of the Week I Broke My Streak
+message_id: <o9a2ch.3eiqrhwcx7w8u@markwunsch.com>
 ---
 
 This Week's Program: June 20 - June 24
@@ -41,3 +42,4 @@ your inbox and your attention to my practice.
 – Mark
 
 [last-week]: http://www.markwunsch.com/tinyletter/2016/06/a_year_of_code.html
+
