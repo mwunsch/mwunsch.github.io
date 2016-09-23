@@ -18,7 +18,7 @@ class PublishToTumblr < Jekyll::Generator
         post.data['tumblr_id'] = id
         chunks = File.readlines(post.path).slice_before(/-{3}/).to_a
         chunks.first.push("tumblr_id: #{id}")
-        File.open(path, "w") {|f| f.puts chunks }
+        File.open(post.path, "w") {|f| f.puts chunks }
         published << post
         puts "Success. Updated #{post.path} to reflect changes."
       end

@@ -35,16 +35,9 @@ class EmailNewsletter < Jekyll::Generator
         mail.send_message msgstr(post, to_addr), FROM, to_addr
       end
       if response.success?
-        File.open(post.path, "w") do |file|
-          file.write <<EOF
----
-title: #{post.data['title']}
-message_id: #{post.data['message_id']}
----
-
-#{post.content}
-EOF
-        end
+        chunks = File.readlines(post.path).slice_before(/-{3}/).to_a
+        chunks.first.push("message_id: #{message_id}")
+        File.open(post.path, "w") {|f| f.puts chunks }
         mailed << post
         puts "Success. Updated #{post.path} to reflect changes."
       else
