@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="archive article">
+  <h1 class="head"><a href="/" rel="author">Mark Wunsch</a> <small>/tinyletter</small></h1>
+
+  <p><em>This Week's Program</em> is the name of my TinyLetter, published (as you would imagine) weekly. Every weekday I commit some code to a public repository, and the Friday of that week I send a summary of the commits and a report on project status. Publishing the newsletter is a forcing function to encourage a deliberate practice of writing code. The letters are committed to my website, and then published to TinyLetter through a git pre-push hook.</p>
+
+  <ul class="tinyletter-index">
+  {% for post in site.categories.tinyletter %}
+    <li>
+      <a href="{{ post.url }}">
+        {{post.title}}
+      </a>
+      <time>{{post.date | date: "%F"}}</time>
+    </li>
+  {% endfor %}
+  </ul>
+  <footer>
+    {% include subscription.html %}
+  </footer>
+</div>
