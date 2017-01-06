@@ -1,5 +1,6 @@
 ---
 title: The Programs of the First Week of 2017
+message_id: <ojdady.1ktzwvfk1utow@markwunsch.com>
 ---
 
 This Week's Program: Jan 2 - Jan 6
