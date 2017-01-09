@@ -5,7 +5,7 @@ layout: default
 {% capture canonical %}{% include canonical.html %}{% endcapture %}
 {% capture tumblelog_type %}{% if page.type %}{{page.type}}{% else %}text{% endif %}{% endcapture %}
 <div class="tumblelog article">
-  <h1 class="head"><a href="/" rel="author">Mark Wunsch</a> <small>/tumblelog</small></h1>
+  <h1 class="head"><a href="/" rel="author">Mark Wunsch</a> <small><a href="/tumblelog">/tumblelog</a></small></h1>
 
   <article class="tumblelog t-{{tumblelog_type}}" id="{{page.path | slugify}}" data-tumblr-id="{{page.tumblr_id}}">
     {% case tumblelog_type %}
