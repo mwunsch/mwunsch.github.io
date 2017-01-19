@@ -17,3 +17,8 @@ defaults:
       path: "tinyletter"
     values:
       layout: "tinyletter"
+  -
+    scope:
+      path: "thinkpiece"
+    values:
+      layout: "thinkpiece"

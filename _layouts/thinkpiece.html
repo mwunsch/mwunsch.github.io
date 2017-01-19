@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="thinkpiece article">
+  <h1 class="head"><a href="/" rel="author">Mark Wunsch</a> <small><a href="https://medium.com/@markwunsch">/thinkpiece</a></small></h1>
+
+  <article class="thinkpiece" id="{{page.path | slugify}}">
+    <header>
+      <h1 class="post-title">{{page.title}}</h1>
+    </header>
+    <div class="post-body">
+      {{ content }}
+    </div>
+    <footer class="post-footer">
+      <time class="pubdate">{{page.date | date_to_long_string}}</time>
+    </footer>
+  </article>
+</div>
