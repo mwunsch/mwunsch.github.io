@@ -4,6 +4,7 @@ tags:
 - Elm
 - Gamedev
 - Retrospective
+medium_id: 62be2de75ca2
 ---
 
 In early August, I began writing a game in
