@@ -1,5 +1,9 @@
 ---
-title: Five Months of Elm
+title: Five Months of Gamedev with Elm
+tags:
+- Elm
+- Gamedev
+- Retrospective
 ---
 
 In early August, I began writing a game in
