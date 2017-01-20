@@ -1,6 +1,5 @@
 ---
 title: Five Months of Elm
-medium_id: xxxx
 ---
 
 In early August, I began writing a game in
@@ -19,8 +18,9 @@ brain around the concept of a _time-varying value_, I knew that Elm
 was an impressive and important advancement in the development of user
 interfaces. Evan Czaplicki's
 thesis, [*Elm: Concurrent FRP for Functional GUIs*][elm-thesis], was
-published in 2012. Another interesting thing that happened in the
-Spring/early Summer of 2013 was the initial public release
+published in 2012 and I felt like I was early to what would become a
+really interesting movement. Another interesting thing that happened
+in the Spring/early Summer of 2013 was the initial public release
 of [React](https://github.com/facebook/react/tree/v0.3.0).
 
 This post is not the right venue to discuss the specifics of
@@ -48,13 +48,13 @@ metaphors and vocabulary to ease in newcomers. I think it's great.
 * * *
 
 In the mid-1990's, I was introduced to [**Warhammer 40,000**][40k]. It
-was the coolest thing I'd ever seen. Warhammer 40K is a tabletop
-wargame that encapsulates everything that I thought was cool when I
-was a kid in the mid 90's. As I learned more about the game and bought
-into the whole ecosystem (I did not literally buy into it because it
-is a very expensive hobby, but I did read a lot
-of [White Dwarf][white-dwarf]) I found [**Necromunda**][necromunda], a
-spin-off game set in the same universe.
+was _so_ cool. Warhammer 40K is a tabletop wargame that encapsulates
+everything that I thought was cool when I was a kid in the mid
+90's. As I learned more about the game and bought into the whole
+ecosystem (I did not literally buy into it because it is a very
+expensive hobby, but I did read a lot of [White Dwarf][white-dwarf]) I
+found [**Necromunda**][necromunda], a spin-off game set in the same
+universe.
 
 I had been dabbling in [pseudorandomness][lol-random] for a recent
 project and gained a new-found appreciation for dice-based games like
@@ -113,7 +113,7 @@ follow. The Elm [compiler's errors][errors] have received a lot of
 well-deserved attention for their usefulness and readability. I relied
 heavily on the compiler and was so grateful for its clarity and
 tone. There's plenty of internet handwringing about Elm's lack of
-features, notably typeclasses. I didn't find this to be a real
+features, notably typeclasses. I did not find this to be a real
 deal-breaker and got along fine without. My experience with Elm went
 well.
 
@@ -134,7 +134,7 @@ making web-based games with SVG is common. Elm tooling is still so
 nascent, and the community of frameworks and libraries built around
 Elm (and that are kept up to date) are so young. There is no great
 reference for doing game development in Elm, though I'm not sure what
-I was expecting. I also had to do _so much_ math and I couldn't help
+I was expecting. I also had to do _so much math_ and I couldn't help
 but think a solid game framework would have provided that for me.
 
 As I stated before, I am abandoning this project. I reached my goals
@@ -143,7 +143,7 @@ don't feel like staying within the Elm ecosystem will provide me the
 education I need. I'll be picking up Unity to learn more. That's
 perhaps the most obvious choice for someone new to game development. I
 was hopeful that Elm would provide enough to scratch my gamedev
-itch. It doesn't, and I'm hungry for more.
+itch. It doesn't, and I'm still itching for more.
 
 ![Progress in the week of Oct 14](http://www.markwunsch.com/img/hive_city_oct14.gif)
 
@@ -179,7 +179,14 @@ Finally, and most importantly, is _the_ talk that best defines the Elm
 approach:
 [_Code is the Easy Part_](https://www.youtube.com/watch?v=DSjbTC-hvqQ). This
 talk outlines the goals and methodology of the Elm community and
-ecosystem.
+ecosystem. One argument leveled against Elm is how it stands up to
+other, similar programming
+environments. [Here's a blog post][purely-functional] comparing
+different purely functional web UI approaches. This talk explicitly
+outlines that Elm is not trying to be the pinnacle of the last twenty
+years of functional programming research. Having "Monadic" code is not
+something that Elm cares about. Honestly, neither do I. Neither do
+most developers, I suspect.
 
 [impossible-states]: https://www.youtube.com/watch?v=IcgmSRJHu_8
 
@@ -189,17 +196,24 @@ ecosystem.
 
 ![Oct 28 progress](http://www.markwunsch.com/img/hive_city_oct28.gif)
 
+[purely-functional]: http://mutanatum.com/posts/2017-01-12-Browser-FP-Head-to-Head.html
+
 ## What Still Puzzles Me?
 
 Embarking on this project, I did not expect to be so captivated by
 game development. Now I want to make games, and I want to explore game
-development in a variety of contexts. This is something I've only
-barely scratched the surface on.
+development in a variety of contexts. Someone asked me if I thought
+that a functional approach to game development was better than an
+imperative approach. I honestly don't know, because I've never done
+game development any other way. This is something I've only barely
+scratched the surface on.
 
 I'm so completely befuddled by WebGL, and in
 particular
 [WebGL with Elm](http://package.elm-lang.org/packages/elm-community/webgl/latest). How
-does this work? I am so puzzled.
+does this work? I've never done anything with OpenGL before. More than
+that, what is this strange syntax that allows WebGL to work within
+Elm? I am so puzzled.
 
 Elm works within its native environment (the browser, mostly) using
 _Effect Managers_. Effect Managers are not well-documented. I'm not
@@ -215,7 +229,7 @@ some
 
 I fret about Elm's ongoing relevance. *Code is the Easy Part* suggests
 that Elm's goal is to compete with other JavaScript frameworks in the
-arena of web developer mind share. I have really come to like and
+arena of web developer mind share. I have come to really like and
 enjoy Elm, but I can't help but think that ship has already
 sailed. Developers have a plurality of choice in web development, and
 the decision tree that a developer or engineering manager must take to
@@ -242,8 +256,8 @@ and [Turbulenz](https://github.com/turbulenz/turbulenz_engine)
 or [Superpowers](http://superpowers-html5.com/index.en.html). I think
 this would be a great area for Elm to stand out and differentiate
 itself. Unfortunately, I am not adept enough to make a meaningful
-contribution here. If you're a game developer looking for a platform,
-I think Elm is worth your time and investment.
+contribution here. If you're a game developer looking to shape and
+mold a platform, I think Elm is worth your time and investment.
 
 ![Final Hive City animated gif](http://www.markwunsch.com/img/hive_city_jan19.gif)
 
@@ -257,7 +271,8 @@ project and no regrets about abandoning it in its current state. I
 would love to revisit the world of Necromunda and 40K for my future
 gamedev endeavors. I'll be keeping an eye on the Elm community and its
 development, though it's unlikely I will be programming in it again
-anytime soon.
+anytime soon. There are more languages to learn and more projects to
+do.
 
 Just this week, Games Workshop [announced][announcement] that an
 officially licensed Necromunda computer game would be released soon.
