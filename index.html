@@ -69,6 +69,36 @@ description: "A technologist and software engineer."
         </li>
       </ul>
     </div>
+    <div class="diagnostic-display">
+      <div class="display-header">
+        <span class="system-id">INTERNAL</span>
+        <span class="timestamp" id="current-time">00:00:00</span>
+        <script>
+          function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds}`;
+          }
+          updateTime();
+          setInterval(updateTime, 1000);
+        </script>
+      </div>
+      <div class="display-content">
+        <div class="status-indicators">
+          <span class="indicator">READ</span>
+          <span class="indicator">SHARE</span>
+          <span class="indicator active">SUBSCRIBE</span>
+          <span class="indicator">ARCHIVE</span>
+        </div>
+        <div class="broadcast-section">
+          <div class="digital-readout">/WUNSCH/LOG</div>
+          <div class="status-text">BROADCAST SYSTEM ACTIVE</div>
+          <a href="https://wunschwerks.substack.com" class="cta-text">ESTABLISH UPLINK</a>
+        </div>
+      </div>
+    </div>
   </div>
   <hr />
 </section>
