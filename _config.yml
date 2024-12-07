@@ -2,7 +2,7 @@ exclude: [Gemfile, Gemfile.lock, Rakefile, README, CNAME]
 url: https://www.markwunsch.com
 tumblr_url: https://blog.markwunsch.com
 permalink: /:categories/:year/:month/:title.html
-gems:
+plugins:
   - jekyll-redirect-from
   - jekyll-feed
 sass:
