@@ -72,18 +72,10 @@ description: "A technologist and software engineer."
     <div class="diagnostic-display">
       <div class="display-header">
         <span class="system-id">INTERNAL</span>
-        <span class="timestamp" id="current-time">00:00:00</span>
-        <script>
-          function updateTime() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds}`;
-          }
-          updateTime();
-          setInterval(updateTime, 1000);
-        </script>
+        <span class="timestamp" id="current-time">
+          <span class="time-modifier">UTC</span>
+          <span class="time-main">00:00:00</span><span class="time-ms">000</span>
+        </span>
       </div>
       <div class="display-content">
         <div class="status-indicators">
@@ -102,3 +94,17 @@ description: "A technologist and software engineer."
   </div>
   <hr />
 </section>
+
+<script>
+  function updateTime() {
+    const now = new Date();
+    const hours = String(now.getUTCHours()).padStart(2, '0');
+    const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+    const ms = String(now.getUTCMilliseconds()).padStart(3, '0');
+    document.querySelector('#current-time .time-main').textContent = `${hours}:${minutes}:${seconds}`;
+    document.querySelector('#current-time .time-ms').textContent = ms;
+  }
+  updateTime();
+  setInterval(updateTime, 16); // ~60fps update rate for smooth milliseconds
+</script>

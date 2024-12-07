@@ -967,8 +967,37 @@ hr {
     .timestamp {
       font-family: $mono;
       color: $eva-green;
-      font-size: 1.2em;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: baseline;
+      font-weight: 500;
+
+      .time-modifier {
+        font-size: 0.8em;
+        color: $eva-orange;
+        margin-right: 0.5em;
+        opacity: 0.8;
+        font-weight: normal;
+      }
+
+      .time-main {
+        font-size: 1.8em;
+        text-shadow: 0 0 8px rgba($eva-green, 0.5);
+      }
+
+      .time-seconds {
+        font-size: 1.8em;
+        margin-left: 0.2em;
+        text-shadow: 0 0 8px rgba($eva-green, 0.5);
+      }
+
+      .time-ms {
+        font-size: 0.9em;
+        margin-left: 0.2em;
+        opacity: 0.7;
+        min-width: 3ch;
+        display: inline-block;
+      }
     }
   }
 
@@ -1070,4 +1099,12 @@ hr {
   50% {
     background: rgba($eva-orange, 0.2);
   }
+}
+
+// Add Digital-7 font
+@font-face {
+  font-family: 'Digital-7';
+  src: url('https://cdn.jsdelivr.net/npm/digital-7-mono/digital-7-mono.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
