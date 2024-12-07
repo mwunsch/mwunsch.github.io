@@ -6,7 +6,8 @@ plugins:
   - jekyll-redirect-from
   - jekyll-feed
 sass:
-  style: :compact
+  sass_dir: _sass
+  style: compressed
 defaults:
   -
     scope:
