@@ -482,7 +482,7 @@ hr {
   text-align: center;
   
   h2 {
-    font-family: $title;
+    font-family: $sans;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: -0.02em;
@@ -537,7 +537,7 @@ hr {
     transform-origin: left;
     
     .dispatch-desc {
-      font-family: $sans;
+      font-family: $serif;
       font-size: clamp(1.5em, 5vw, 2.5em);
       letter-spacing: 0.05em;
       font-weight: 500;
