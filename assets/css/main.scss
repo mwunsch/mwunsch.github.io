@@ -396,62 +396,9 @@ hr {
   50% { opacity: 0.5; transform: translateX(5px); }
 }
 
-@media (max-width: 640px) {
-  .elsewhere {
-    grid-template-columns: 1fr;
-    
-    .link {
-      .link-box::after {
-        width: 30px;
-      }
-    }
-  }
-}
-
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
-}
-
-@media (max-width: 900px) {
-  .elsewhere-container {
-    min-height: auto;
-    
-    &::before {
-      display: none;
-    }
-  }
-  
-  .elsewhere {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    padding: 2em 0;
-    
-    .link {
-      position: relative;
-      width: 100%;
-      transform: none !important;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-      bottom: auto !important;
-      
-      &:nth-child(odd) {
-        align-self: flex-start;
-      }
-      
-      &:nth-child(even) {
-        align-self: flex-end;
-      }
-    }
-  }
-}
-
-@media (max-width: 640px) {
-  .elsewhere {
-    grid-template-columns: 1fr;
-  }
 }
 
 #footer {
@@ -1107,4 +1054,82 @@ hr {
   src: url('https://cdn.jsdelivr.net/npm/digital-7-mono/digital-7-mono.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+@media (max-width: 900px) {
+  .diagnostic-display {
+    margin: 3em 1em;
+    
+    .display-header {
+      padding: 0.5em;
+      
+      .timestamp {
+        .time-main { font-size: 1.4em; }
+        .time-ms { font-size: 0.8em; }
+      }
+    }
+    
+    .display-content {
+      padding: 1em;
+    }
+    
+    .status-indicators {
+      flex-wrap: wrap;
+      gap: 0.5em;
+      
+      .indicator {
+        font-size: 0.75em;
+        padding: 0.2em 0.8em;
+      }
+    }
+    
+    .broadcast-section {
+      padding: 0;
+      
+      .digital-readout { font-size: 1.8em; }
+      .status-text { font-size: 0.8em; }
+      .cta-text {
+        padding: 0.6em 1.5em;
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .elsewhere-container {
+    margin: 2em 0.5em;
+    padding: 0.5em;
+  }
+  
+  .elsewhere {
+    gap: 1.5em;
+    
+    .link .link-box {
+      padding: 0.8em;
+    }
+  }
+  
+  .diagnostic-display {
+    margin: 2em 0.5em;
+    
+    .broadcast-section {
+      .digital-readout { font-size: 1.5em; }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .elsewhere {
+    grid-template-columns: minmax(auto, 500px) !important;
+    gap: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .elsewhere {
+    grid-template-columns: 1fr !important;
+    gap: 1.5em;
+    max-width: 100%;
+  }
 }
