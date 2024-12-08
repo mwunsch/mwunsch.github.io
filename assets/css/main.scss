@@ -515,10 +515,54 @@ hr {
   transform: scaleX(0.85);
   transform-origin: left;
   margin-top: 2em;
+  position: relative;
+  overflow: hidden;
   
-  &:hover {
+  &::after {
+    content: 'SECURE CHANNEL READY';
+    position: absolute;
+    font-family: $mono;
+    font-size: 0.65em;
+    letter-spacing: 0.15em;
+    top: 0;
+    right: 0;
+    padding: 0.25em 0.5em;
     background: var(--text-color);
     color: var(--background-color);
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+    z-index: 2;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--text-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+    z-index: 0;
+  }
+  
+  &:hover {
+    color: var(--background-color);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+    
+    &::after {
+      transform: translateY(0);
+    }
+    
+    .subscribe-text {
+      transform: translateX(10px);
+    }
+    
+    .subscribe-code {
+      transform: translateX(5px);
+    }
   }
   
   .subscribe-text {
@@ -526,6 +570,9 @@ hr {
     font-size: 1.2em;
     letter-spacing: 0.15em;
     font-weight: 500;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
   }
   
   .subscribe-code {
@@ -533,6 +580,9 @@ hr {
     font-size: 0.7em;
     letter-spacing: 0.1em;
     margin-top: 0.5em;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
   }
 }
 
