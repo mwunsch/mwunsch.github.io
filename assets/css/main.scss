@@ -89,15 +89,16 @@ hr {
   justify-content: flex-end;
   margin: 4em 0;
   position: relative;
-  width: 94vw;
+  width: 100%;
+  padding: 0 3vw;
   
   h1 {
     font-family: $title;
-    font-weight: 700;
+    font-weight: 900;
     margin: 0 0 -0.2em;
     text-transform: uppercase;
-    letter-spacing: -0.01em;
-    line-height: 0.85;
+    letter-spacing: -0.05em;
+    line-height: 0.8;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -107,50 +108,51 @@ hr {
       white-space: nowrap;
       
       &:first-child {
-        font-size: min(8vw, 11vh);
-        margin-bottom: -0.1em;
-        transform: scaleX($title-scale-x);
+        font-size: min(10vw, 13vh);
+        margin-bottom: -0.2em;
+        transform: scaleX(0.7);
         transform-origin: left center;
       }
       
       &:last-child {
-        font-size: 20vw;
+        font-size: 24vw;
         transform-origin: left center;
-        transform: scaleX($title-scale-x);
-        width: calc(100% / #{$title-scale-x});
+        transform: scaleX(0.65);
+        width: calc(100% / 0.65);
         overflow: hidden;
       }
     }
   }
 
   p {
-    margin: 1em 0 0;
+    margin: 1.5em 0 0;
     font-family: $sans;
     color: var(--text-color);
-    font-size: 8vw;
+    font-size: clamp(1.25rem, 6vw, 6rem);
     text-transform: uppercase;
-    letter-spacing: $sans-tracking;
+    letter-spacing: 0.15em;
     align-self: flex-end;
     line-height: 1;
-    transform: scaleX($title-scale-x);
+    transform: scaleX(0.75);
     transform-origin: right center;
-    width: calc(100% / #{$title-scale-x});
+    width: calc(100% / 0.75);
     text-align: right;
-    padding-right: 3vw;
+    padding-right: 0;
     
     &::before {
       content: "FINGERPRINT:9E26 C63A DC75 6EEF";
       display: block;
       font-family: $sans;
-      font-size: 0.2em;
+      font-size: clamp(0.6rem, 0.2em, 1.2rem);
       margin-bottom: 0.8em;
       color: var(--text-color);
-      letter-spacing: 0.25em;
+      letter-spacing: 0.3em;
     }
     
     @media (max-width: $breakpoint-tablet) {
-      font-size: 10vw;
-      margin-top: 0.5em;
+      margin-top: 1em;
+      font-size: clamp(1rem, 8vw, 4rem);
+      letter-spacing: 0.1em;
     }
   }
 }
