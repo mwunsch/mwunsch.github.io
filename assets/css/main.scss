@@ -425,6 +425,9 @@ hr {
   border: none;
   position: relative;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   
   &::before, &::after {
     content: '';
@@ -441,16 +444,8 @@ hr {
 
 .newsletter-header {
   margin-bottom: 2em;
-  
-  .episode-marker {
-    display: block;
-    font-family: $mono;
-    font-size: 0.8em;
-    letter-spacing: 0.25em;
-    margin-bottom: 1em;
-    transform: scaleX(0.85);
-    transform-origin: left;
-  }
+  width: 100%;
+  text-align: center;
   
   h2 {
     font-family: $title;
@@ -480,28 +475,46 @@ hr {
 }
 
 .newsletter-content {
-  margin: 3em 0;
-  transform: scaleX(0.85);
-  transform-origin: left;
+  margin: 2em 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5em;
+  align-items: start;
+  width: 100%;
   
-  p {
-    margin: 0;
-    line-height: 1.2;
-    text-transform: uppercase;
+  .dispatch-meta {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform-origin: center;
+    padding-left: 0.25em;
   }
   
   .dispatch-code {
     font-family: $mono;
     font-size: 0.8em;
     letter-spacing: 0.15em;
-    margin-bottom: 1.5em;
+    white-space: nowrap;
+    transform: scaleX(0.7);
+    text-transform: uppercase;
   }
   
-  .dispatch-desc {
-    font-family: $sans;
-    font-size: clamp(1.2em, 4vw, 2em);
-    letter-spacing: 0.05em;
-    font-weight: 500;
+  .dispatch-list {
+    transform: scaleX(0.7);
+    transform-origin: left;
+    
+    .dispatch-desc {
+      font-family: $sans;
+      font-size: clamp(1.5em, 5vw, 2.5em);
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      margin: 0;
+      line-height: 0.9;
+      text-transform: uppercase;
+      
+      &:not(:last-child) {
+        margin-bottom: 0.35em;
+      }
+    }
   }
 }
 
@@ -512,7 +525,7 @@ hr {
   padding: 1em 2em;
   border: 1px solid var(--text-color);
   transition: all 0.3s ease;
-  transform: scaleX(0.85);
+  transform: scaleX(0.75);
   transform-origin: left;
   margin-top: 2em;
   position: relative;
@@ -577,6 +590,7 @@ hr {
     position: relative;
     z-index: 1;
     transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+    text-transform: uppercase;
   }
   
   .subscribe-code {
@@ -587,6 +601,7 @@ hr {
     position: relative;
     z-index: 1;
     transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+    text-transform: uppercase;
   }
 }
 
@@ -605,18 +620,65 @@ hr {
 // Footer
 #footer {
   margin-top: 4em;
-  font-family: $mono;
+  font-family: $serif;
   font-size: 0.85em;
   color: var(--text-color);
   border-top: 1px solid var(--text-color);
   padding-top: 1em;
+  letter-spacing: -0.02em;
+  transform: scaleX(0.85);
+  transform-origin: left center;
   
   p { 
     margin: 0;
+    position: relative;
+    padding-left: 2.5em;
+    
     &::before {
-      content: "//";
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 1.8em;
+      height: 1px;
+      background: var(--text-color);
+      transform-origin: left center;
+    }
+    
+    &::after {
+      content: ">";
+      position: absolute;
+      left: 1.8em;
+      top: 50%;
+      transform: translateY(-55%) scaleX(1.176);
+      font-family: $mono;
+      font-size: 0.9em;
       color: var(--text-color);
-      margin-right: 0.5em;
+    }
+    
+    a {
+      position: relative;
+      padding: 0 0.25em;
+      font-weight: 600;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--text-color);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+        z-index: -1;
+      }
+      
+      &:hover {
+        color: var(--background-color);
+        
+        &::before {
+          transform: scaleX(1);
+        }
+      }
     }
   }
 }
