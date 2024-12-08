@@ -92,6 +92,13 @@ hr {
   width: 100%;
   padding: 0 3vw;
   
+  @media (max-width: $breakpoint-tablet) {
+    margin: 0;
+    min-height: 85vh;
+    justify-content: center;
+    padding: 0;
+  }
+  
   h1 {
     font-family: $title;
     font-weight: 900;
@@ -112,6 +119,13 @@ hr {
         margin-bottom: -0.2em;
         transform: scaleX(0.7);
         transform-origin: left center;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: min(15vw, 20vh);
+          margin-bottom: -0.15em;
+          transform: scaleX(0.65);
+          width: calc(100% / 0.65);
+        }
       }
       
       &:last-child {
@@ -120,6 +134,12 @@ hr {
         transform: scaleX(0.65);
         width: calc(100% / 0.65);
         overflow: hidden;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: min(35vw, 45vh);
+          transform: scaleX(0.6);
+          width: calc(100% / 0.6);
+        }
       }
     }
   }
@@ -150,9 +170,17 @@ hr {
     }
     
     @media (max-width: $breakpoint-tablet) {
-      margin-top: 1em;
-      font-size: clamp(1rem, 8vw, 4rem);
-      letter-spacing: 0.1em;
+      margin-top: 2em;
+      font-size: clamp(1rem, min(8vw, 10vh), 4rem);
+      letter-spacing: 0.08em;
+      transform: scaleX(0.7);
+      width: calc(100% / 0.7);
+      padding: 0 3vw;
+      
+      &::before {
+        margin-bottom: 1.2em;
+        letter-spacing: 0.2em;
+      }
     }
   }
 }
@@ -161,6 +189,10 @@ hr {
 .front-page {
   font-size: calc(14px + 1vmin);
   margin-top: 4em;
+  
+  @media (max-width: $breakpoint-tablet) {
+    margin-top: 2em;
+  }
 }
 
 // Introduction Section
